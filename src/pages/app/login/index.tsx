@@ -1,13 +1,17 @@
-import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  const handleLogin = async () => {
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+
     try {
-      const response = await axios.post("http://localhost:8000/api/token/", {
+      const response = await axios.post("http://127.0.0.1:8000/api/token/", {
         username,
         password,
       });
@@ -15,9 +19,11 @@ export function Login() {
       const { access } = response.data;
       localStorage.setItem("token", access);
 
+      navigate("/");
+
       return access;
     } catch (error) {
-      console.error("Login mal-sucedido:", error);
+      alert(`Login mal-sucedido: ${error}`);
     }
   };
 
