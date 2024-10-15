@@ -30,6 +30,13 @@ export function Header() {
             >
               Pacientes
             </Link>
+
+            <Link
+              className="text-white text-lg font-normal pl-10 hover:text-yellow-300"
+              to="login"
+            >
+              Login
+            </Link>
           </nav>
         </div>
       </header>
