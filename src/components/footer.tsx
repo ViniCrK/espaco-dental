@@ -26,7 +26,7 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <a href="#" className="hover:text-yellow-300">
-                  Item 1
+                  Sobre
                 </a>
               </li>
             </ul>
@@ -37,7 +37,7 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <a href="#" className="hover:text-yellow-300">
-                  Item 1
+                  Termos
                 </a>
               </li>
             </ul>
@@ -48,7 +48,7 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <a href="#" className="hover:text-yellow-300">
-                  Item 1
+                  SAC
                 </a>
               </li>
             </ul>
