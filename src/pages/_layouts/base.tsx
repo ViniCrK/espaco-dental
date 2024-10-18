@@ -9,13 +9,13 @@ export function BaseLayout() {
         <Header />
       </div>
 
-      <div className="flex flex-grow w-full px-24 mx-auto pb-9 pt-6 bg-slate-300">
+      <div className="container mx-auto px-16 py-4 bg-gray-300">
         <Outlet />
       </div>
 
       <div className="flex flex-col w-full mx-auto">
-        <Footer />  
+        <Footer />
       </div>
     </>
-  )
+  );
 }
