@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { IAppointment } from "../../../models/Appointments";
 import api from "../../../api";
+import { AppointmentCard } from "./components/appointment-card";
 
 export function ListAppointments() {
   const [appointments, setAppointments] = useState<IAppointment[]>([]);
@@ -23,7 +24,7 @@ export function ListAppointments() {
 
         setAppointments(response.data);
       } catch (error) {
-        console.error("Erro ao buscar os dados", error);
+        alert(`Erro ao buscar os dados: ${error}`);
       }
     };
 
@@ -32,12 +33,13 @@ export function ListAppointments() {
 
   return (
     <>
-      <h1>Lista de Consultas</h1>
-      {appointments.map((appointment, id) => (
-        <div key={id}>
-          {appointment.patient.name} - {appointment.dentist.name}
-        </div>
-      ))}
+      <h1 className="text-3xl font-bold mb-8">Lista de Consultas</h1>
+
+      <div className="grid grid-cols-4 gap-8">
+        {appointments.map((appointment) => (
+          <AppointmentCard appointment={appointment} />
+        ))}
+      </div>
     </>
   );
 }
